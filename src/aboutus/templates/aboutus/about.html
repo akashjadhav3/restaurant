@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block body%}
+      
+      <div class="main-wrap">
+        <div class="cover_1 cover_sm">
+          <div class="img_bg" style="background-image: url({% static 'site_static/img/slider-1.jpg' %})" data-stellar-background-ratio="0.5">
+            <div class="container">
+              <div class="row align-items-center justify-content-center">
+                <div class="col-md-7" data-aos="fade-up">
+                  <h2 class="heading" style="background-color:white; text-align:center;">About The Restaurant</h2>
+                  <p class="lead"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .cover_1 -->
+
+        <div class="section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-7" data-aos="fade-up">
+                <img src="{% static 'site_static/img/about_1.png' %}" alt="Image placeholder" class="img-fluid">
+              </div>
+              <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="mb-4">Restaurnts History</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis illo eos cum est adipisci saepe, soluta at. Sint odio unde omnis, laborum architecto eveniet ea tenetur consequuntur. Nihil doloremque perspiciatis, nesciunt voluptatibus harum ipsam aut sit officia recusandae, voluptatem dolor. Recusandae labore ea perspiciatis voluptas, quibusdam voluptates impedit deserunt eligendi.</p>
+                <p>Quos illum eum, provident ratione omnis repellendus modi iure unde ipsum fuga! Autem quos possimus saepe veniam, sed debitis ex eveniet totam, rerum iste animi quod voluptate magnam doloribus recusandae similique officiis facilis. Recusandae quo excepturi qui est rem sunt voluptas, saepe, voluptates asperiores quidem ducimus libero magnam eius ratione.</p>
+               
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+
+        <div class="section">
+          <div class="container">
+            <div class="row justify-content-center mb-5" data-aos="fade-up">
+              <div class="col-md-8  text-center">
+                <h2 class="mb-3">Why Choose Us</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fuga, alias distinctio voluptatum magni voluptatibus.</p>
+              </div>
+            </div>
+            <div class="row large-gutters">
+              <div class="col-md-6"  data-aos="fade-up" data-aos-delay="200">
+                <img src="{% static 'site_static/img/img_2.jpg' %}" alt="Image placeholder" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="accordion" id="accordion">
+                  {% for accordion in why_choose_us %}
+                  <div class="accordion-item">
+                    <h3 class="mb-0">
+                      <a class="btn-block p-3" data-toggle="collapse" href="#collapse{{accordion.id}}" role="button" aria-expanded="true" aria-controls="collapseOne">{{accordion.title}}<span class="icon"></span></a>
+                    </h3>
+                    <div id="collapse{{accordion.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="p-3">
+                        <p>{{accordion.content}}</p>
+                      </div>
+                    </div>
+                  </div> <!-- .accordion-item -->
+                  {% endfor %}
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- .section -->
+          
+        <div class="section">
+          <div class="container">
+            <div class="row justify-content-center mb-5" data-aos="fade-up">
+              <div class="col-md-8  text-center">
+                <h2 class="mb-3">Restaurants Chef</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fuga, alias distinctio voluptatum magni voluptatibus.</p>
+              </div>
+            </div>
+            <div class="row">
+              {% for chefs in chef %}
+              <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{ chefs.image.url }}" alt="Image placeholder" class="img-fluid mb-4 rounded">
+                <h3 class="mb-3">{{chefs.name}}</h3>
+                <p class="post-meta text-muted">{{chefs.title}}</p>
+                <p class="mb-5">{{chefs.bio}}</p>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div> <!-- .section -->
+
+      </div> <!-- .main-wrap -->
+      
+
+      {% endblock body %}
